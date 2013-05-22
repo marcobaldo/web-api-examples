@@ -8,3 +8,19 @@
         redirectTo: '/vote'
     });
 });
+
+angular.module('spa.Auth', []).factory('User', function ($http) {
+    return {
+        IsAuthenticated: false,
+        Principal: null,
+        login: function (username, password, callback) {
+            $http.post('/api/sessions/login', {
+                username: username,
+                password: password
+            }).success(callback);
+        },
+        logout: function (callback) {
+            $http.post('/api/sessions/logout').success(callback);
+        }
+    };
+});

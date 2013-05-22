@@ -1,6 +1,5 @@
 ﻿angular.module('spa.Vote', ['spa.Vote.Controllers', 'spa.Vote.Services']);
 angular.module('spa.Vote.Controllers', []).controller('VoteCtrl', function ($scope, Polls, Choices) {
-
     var polls = $scope.polls = [];
     var refs = $scope.refs = {};
 

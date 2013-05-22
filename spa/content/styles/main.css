@@ -7,7 +7,7 @@
     border: none;
 }
 
-    .well.span3:nth-child(5n) {
+    .well.span3:nth-child(4n) {
         margin-left: 0;
     }
 
