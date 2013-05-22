@@ -1,0 +1,188 @@
+﻿body {
+    padding-top: 60px;
+}
+
+.well {
+    padding: 0;
+    border: none;
+}
+
+    .well.span3:nth-child(5n) {
+        margin-left: 0;
+    }
+
+.header {
+    color: #fff;
+    background-color: #1BA1E2;
+    padding: 10px 19px;
+}
+
+    .header .title {
+        margin-left: -1px;
+        line-height: 1.4em;
+        font-size: 22px;
+        text-transform: uppercase;
+        display: block;
+    }
+
+    .header .date {
+        text-transform: uppercase;
+        display: block;
+    }
+
+.choices {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+    .choices .choice-item {
+        line-height: 50px;
+        position: relative;
+    }
+    
+        .choices .choice-item.voted {
+            background-color: rgba(27, 161, 226, 0.2);
+        }
+
+            .choices .choice-item.voted .checker:checked:after {
+                color: #fff;
+            }
+
+            .choices .choice-item.voted .title {
+                color: #fff;
+            }
+
+    .choices .choice-item .checker {
+        -webkit-appearance: none;
+        padding: 0;
+        margin: 0;
+        height: 50px;
+        width: 10%;
+        text-align: center;
+        float: left;
+    }
+
+        .choices .choice-item .checker:after {
+            content: '✔';
+            padding: 0;
+            margin: 0;
+            line-height: 50px;
+            height: 50px;
+            font-size: 20px;
+            color: #d9d9d9;
+            text-shadow: 0 -1px 0 #bfbfbf;
+        }
+
+        .choices .choice-item .checker:checked:after {
+            color: #85ada7;
+            text-shadow: 0 1px 0 #669991;
+            bottom: 1px;
+            position: relative;
+        }
+
+    .choices .choice-item .title {
+        cursor: pointer;
+        display: block;
+        height: 50px;
+        font-size: 20px;
+    }
+
+        .choices .choice-item .more {
+            font-size: 1.4em;
+            color: #D9D9D9;
+            text-shadow: 0 -1px 0 #bfbfbf;
+            position: absolute;
+            right: 0px;
+            top: 14px;
+            cursor: pointer;
+        }
+
+        .choices .choice-item .more-info {
+            box-shadow: inset 0 5px 8px -3px rgba(127, 127, 127, 0.5);
+            border-bottom: 1px solid rgba(127, 127, 127, 0.1);
+            padding: 10px;
+        }
+
+        .choices .choice-item.adder {
+            height: 30px;
+            line-height: 30px;
+            background-color: #1BA1E2;
+        }
+
+            .choices .choice-item.adder form {
+                width: 100%;
+                height: 100%;
+                text-align: center;
+                margin: 0px;
+                position: relative;
+            }
+            
+            .choices .choice-item.adder input {
+                height: 100%;
+                width: 100%;
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                right: 0px;
+                bottom: 0px;
+                margin: 0px;
+                padding: 0px;
+                border: none;
+                text-align: center;
+                font-size: 1em;
+                color: #fff;
+                margin-bottom: 0;
+                background-color: #1BA1E2;
+            }
+
+                .choices .choice-item.adder input::-webkit-input-placeholder {
+                    color: #fff;
+                }
+
+.new-choice-enter-setup,
+.new-choice-leave-setup,
+.new-choice-move-setup {
+    -webkit-transition: 0.3s ease-in all;
+    -moz-transition: 0.3s ease-in all;
+    -o-transition: 0.3s ease-in all;
+    transition: 0.3s ease-in all;
+    position: relative;
+}
+
+.new-choice-enter-setup {
+    left:-20px;
+    opacity:0;
+    max-height: 0%;
+}
+.new-choice-enter-setup.new-choice-enter-start {
+    left:0;
+    opacity:1;
+    max-height: 50px;
+}
+
+.new-choice-leave-setup {
+    left:0;
+    opacity:1;
+}
+.new-choice-leave-setup.new-choice-leave-start {
+    left:-10px;
+    opacity:0;
+}
+
+.new-choice-move-setup {
+    opacity:0.5;
+}
+.new-choice-move-setup.new-choice-move-start {
+    opacity:1;
+}
+
+/* Helpers */
+.unselectable {
+    -webkit-user-select: none; /* Chrome all / Safari all */
+    -moz-user-select: none; /* Firefox all */
+    -ms-user-select: none; /* IE 10+ */
+    /* No support for these yet, use at own risk */
+    -o-user-select: none;
+    user-select: none;
+}
