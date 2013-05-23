@@ -2,12 +2,12 @@
     padding-top: 60px;
 }
 
-.well {
+.well.ext {
     padding: 0;
     border: none;
 }
 
-    .well.span3:nth-child(4n) {
+    .well.ext.span3:nth-child(4n) {
         margin-left: 0;
     }
 
