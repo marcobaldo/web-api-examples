@@ -24,7 +24,9 @@ angular.module('spa.Auth.Controllers', []).controller('AuthCtrl', function ($sco
     // Sign in
     var credentials = $scope.credentials = {};
     $scope.signin = function () {
-        alert('Signing in as ' + credentials.Username + '...');
+        User.login(credentials.username, credentials.password, function(response) {
+            console.log(response);
+        });
     };
 });
 

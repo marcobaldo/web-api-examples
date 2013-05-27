@@ -8,10 +8,12 @@ namespace api.Models
     public class User
     {
         public int Id { get; set; }
+        public string Username { get; set; }
         public string DisplayName { get; set; }
         public string Name { get; set; }
         public string Password { get; set; }
-        public string FBId { get; set; }
+        public string FbId { get; set; }
+        public List<Choice> VotedFor { get; set; } 
         public DateTime RegisteredOn { get; set; }
         public UserStatus Status { get; set; }
     }

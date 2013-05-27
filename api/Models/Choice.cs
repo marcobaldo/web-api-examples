@@ -13,7 +13,7 @@ namespace api.Models
         [ForeignKey("Poll"), Column("Poll_Id")]
         public int PollId { get; set; }
         public virtual Poll Poll { get; set; }
-        public List<User> Votees { get; set; }
+        public List<User> VotedBy { get; set; }
         public User AddedBy { get; set; }
     }
 }
