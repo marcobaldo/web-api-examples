@@ -1,3 +1,5 @@
+using api.Models;
+
 namespace api.Migrations
 {
     using System;
@@ -26,6 +28,19 @@ namespace api.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
+
+            User marc = new User();
+            marc.Id = 1;
+            marc.Password = "1234";
+            marc.Username = "marc";
+            marc.DisplayName = "Marc";
+            marc.Name = "Marc Obaldo";
+            marc.FbId = "maaarc";
+            marc.RegisteredOn = DateTime.Now;
+            marc.Status = UserStatus.Active;
+
+            context.Users.AddOrUpdate(m => m.Username, marc);
+            context.SaveChanges();
         }
     }
 }

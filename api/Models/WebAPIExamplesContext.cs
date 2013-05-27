@@ -15,6 +15,13 @@ namespace api.Models
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.Configuration.LazyLoadingEnabled = false;
+            modelBuilder.Entity<Choice>().HasMany(c => c.VotedBy).WithMany(u => u.VotedFor).Map(
+                m =>
+                {
+                    m.ToTable("Choices_Users");
+                    m.MapLeftKey("Choice_Id");
+                    m.MapRightKey("User_Id");
+                });
         }
     }
 }
