@@ -24,7 +24,7 @@ angular.module('spa.Auth.Controllers', []).controller('AuthCtrl', function ($sco
     // Sign in
     var credentials = $scope.credentials = {};
     $scope.signin = function () {
-        User.login(credentials.username, credentials.password, function(response) {
+        User.login(credentials.Username, credentials.Password, function(response) {
             console.log(response);
         });
     };
@@ -35,9 +35,8 @@ angular.module('spa.Auth.Services', []).factory('User', function ($http) {
         IsAuthenticated: false,
         Principal: null,
         login: function (username, password, callback) {
-            $http.post('/api/sessions/login', {
-                username: username,
-                password: password
+            $http.post('/api/sessions/login', $.param({ Username: username, Password: password }), {
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
             }).success(callback);
         },
         logout: function (callback) {
