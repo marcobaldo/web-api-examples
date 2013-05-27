@@ -12,6 +12,17 @@ namespace api.Controllers
 {
     public class SessionsController : ApiController
     {
+        [HttpGet]
+        public object Status()
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                return new { Principal = UserToSerializable(GetUser(User.Identity.Name)), IsAuthenticated = true };
+            }
+
+            return new { IsAuthenticated = false };
+        }
+
         [HttpPost]
         public object Login(LoginModel credentials)
         {

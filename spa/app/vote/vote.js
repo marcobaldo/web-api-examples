@@ -1,4 +1,4 @@
-﻿angular.module('spa.Vote', ['spa.Vote.Controllers', 'spa.Vote.Services']);
+﻿angular.module('spa.Vote', ['spa.Vote.Controllers', 'spa.Services']);
 angular.module('spa.Vote.Controllers', []).controller('VoteCtrl', function ($scope, Polls, Choices) {
     var polls = $scope.polls = [];
     var refs = $scope.refs = {};
@@ -25,7 +25,7 @@ angular.module('spa.Vote.Controllers', []).controller('VoteCtrl', function ($sco
     $scope.vote = function (poll, choice) {
         var toggle = !choice.Selected;
         if (toggle && ($scope.getVotes(poll) >= poll.MaxVotes)) {
-            alert('Cannot vote more than ' + poll.MaxVotes);
+            alert('Cannot vote for more than ' + poll.MaxVotes + ' choice(s)');
             return;
         }
 
@@ -77,30 +77,5 @@ angular.module('spa.Vote.Controllers', []).controller('VoteCtrl', function ($sco
         });
 
         return voted;
-    };
-});
-
-angular.module('spa.Vote.Services', []);
-angular.module('spa.Vote.Services').factory('Polls', function ($http) {
-    return {
-        get: function (callback) {
-            $http.get('/api/polls').success(callback);
-        }
-    };
-});
-
-angular.module('spa.Vote.Services').factory('Choices', function ($http) {
-    return {
-        add: function (poll, label, callback) {
-            var choice = {
-                Label: label,
-                AddedBy: {
-                    Id: 1
-                },
-                PollId: poll.Id
-            };
-
-            $http.post('/api/choices/post', choice).success(callback);
-        }
     };
 });

@@ -132,33 +132,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201305210804348_AddedAllowEdit.cs" />
-    <Compile Include="Migrations\201305210804348_AddedAllowEdit.Designer.cs">
-      <DependentUpon>201305210804348_AddedAllowEdit.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201305210832210_AddedPollInChoice.cs" />
-    <Compile Include="Migrations\201305210832210_AddedPollInChoice.Designer.cs">
-      <DependentUpon>201305210832210_AddedPollInChoice.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201305220134102_RemvoedPollCircularReference.cs" />
-    <Compile Include="Migrations\201305220134102_RemvoedPollCircularReference.Designer.cs">
-      <DependentUpon>201305220134102_RemvoedPollCircularReference.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201305220135453_UpdatedPoll_IdColumnName.cs" />
-    <Compile Include="Migrations\201305220135453_UpdatedPoll_IdColumnName.Designer.cs">
-      <DependentUpon>201305220135453_UpdatedPoll_IdColumnName.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201305270838524_AddedUsers.cs" />
-    <Compile Include="Migrations\201305270838524_AddedUsers.Designer.cs">
-      <DependentUpon>201305270838524_AddedUsers.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201305270845347_ManyToManyChoicesUsers.cs" />
-    <Compile Include="Migrations\201305270845347_ManyToManyChoicesUsers.Designer.cs">
-      <DependentUpon>201305270845347_ManyToManyChoicesUsers.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201305270854514_AttemptToFixMany2Many.cs" />
-    <Compile Include="Migrations\201305270854514_AttemptToFixMany2Many.Designer.cs">
-      <DependentUpon>201305270854514_AttemptToFixMany2Many.cs</DependentUpon>
+    <Compile Include="Migrations\201305271303585_InitialSchema.cs" />
+    <Compile Include="Migrations\201305271303585_InitialSchema.Designer.cs">
+      <DependentUpon>201305271303585_InitialSchema.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Choice.cs" />
@@ -193,26 +169,8 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201305210804348_AddedAllowEdit.resx">
-      <DependentUpon>201305210804348_AddedAllowEdit.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201305210832210_AddedPollInChoice.resx">
-      <DependentUpon>201305210832210_AddedPollInChoice.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201305220134102_RemvoedPollCircularReference.resx">
-      <DependentUpon>201305220134102_RemvoedPollCircularReference.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201305220135453_UpdatedPoll_IdColumnName.resx">
-      <DependentUpon>201305220135453_UpdatedPoll_IdColumnName.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201305270838524_AddedUsers.resx">
-      <DependentUpon>201305270838524_AddedUsers.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201305270845347_ManyToManyChoicesUsers.resx">
-      <DependentUpon>201305270845347_ManyToManyChoicesUsers.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201305270854514_AttemptToFixMany2Many.resx">
-      <DependentUpon>201305270854514_AttemptToFixMany2Many.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201305271303585_InitialSchema.resx">
+      <DependentUpon>201305271303585_InitialSchema.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

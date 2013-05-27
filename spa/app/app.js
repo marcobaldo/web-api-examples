@@ -5,8 +5,12 @@
         controller: 'AuthCtrl'
     });
     $routeProvider.when('/vote', {
-        templateUrl: 'app/vote/index.tpl.html',
+        templateUrl: 'app/vote/vote.tpl.html',
         controller: 'VoteCtrl'
+    });
+    $routeProvider.when('/create', {
+        templateUrl: 'app/create/create.tpl.html',
+        controller: 'CreateCtrl'
     });
     $routeProvider.otherwise({
         redirectTo: '/vote'
@@ -20,12 +24,24 @@
 });
 
 angular.module('spa.Auth', ['spa.Auth.Controllers', 'spa.Auth.Services']);
-angular.module('spa.Auth.Controllers', []).controller('AuthCtrl', function ($scope, User) {
+angular.module('spa.Auth.Controllers', []).controller('AuthCtrl', function ($scope, $location, User) {
+    User.checkStatus(function (response) {
+        User.IsAuthenticated = response.IsAuthenticated;
+        User.Principal = response.Principal;
+        if (response.IsAuthenticated) {
+            $location.path('/votes');
+        }
+    });
+
     // Sign in
     var credentials = $scope.credentials = {};
     $scope.signin = function () {
-        User.login(credentials.Username, credentials.Password, function(response) {
-            console.log(response);
+        User.login(credentials.Username, credentials.Password, function (response) {
+            User.IsAuthenticated = response.IsAuthenticated;
+            User.Principal = response.Principal;
+            if (response.IsAuthenticated) {
+                $location.path('/votes');
+            }
         });
     };
 });
@@ -41,6 +57,9 @@ angular.module('spa.Auth.Services', []).factory('User', function ($http) {
         },
         logout: function (callback) {
             $http.post('/api/sessions/logout').success(callback);
+        },
+        checkStatus: function (callback) {
+            $http.get('/api/sessions/status').success(callback);
         }
     };
 });
