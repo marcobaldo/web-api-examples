@@ -1,24 +1,60 @@
 ﻿<div class="row-fluid">
     <div class="well ext offset4 span4 unselectable">
         <div class="header">
-            <h1>Hi</h1>
-            <!--<span class="title">{{poll.Title}}</span>
-            <span class="date">Ends on {{poll.Closing | date: 'MMM dd @ HH:mm a'}}</span>-->
+            <input type="text" ng-model="newPoll.Title" class="title" placeholder="Enter title..." />
+            <div class="control-group input-prepend input-append">
+                <span class="add-on">Close poll on </span>
+                <input type="text" class="date-field" placeholder="set date" ng-model="newPoll.EndTime.Date" data-date-format="MM dd" bs-datepicker />
+                <button type="button" class="btn" data-toggle="datepicker"><i class="icon-calendar"></i></button>
+            </div>
+            <div class="control-group input-append">
+                <input type="text" class="time-field" placeholder="set time" ng-model="newPoll.EndTime.Time" bs-timepicker />
+                <button type="button" class="btn" data-toggle="timepicker"><i class="icon-time"></i></button>
+            </div>
         </div>
-<!--        <ul class="choices">
-            <li ng-repeat="choice in poll.Choices" class="choice-item" ng-class="{voted: choice.Selected}" ng-animate="'new-choice'">
-                <input type="checkbox" class="checker" ng-checked="choice.Selected" ng-click="vote(poll, choice)" title="Vote for this choice" />
-                <span class="title" ng-click="vote(poll, choice)" title="Vote for this choice">{{choice.Label}}</span>
-                <i class="more icon-angle-down" title="View more info" ng-click="showMoreInfo(choice)"></i>
-                <div class="more-info" ng-show="choice.ShowMoreInfo" ng-animate="'new-choice'">
-                    <span class="author">Added by {{choice.AddedBy.DisplayName}}</span>
-                </div>
+        <ul class="choices">
+            <li ng-repeat="choice in newPoll.Choices" class="choice-item">
+                <span class="title" title="Vote for this choice">{{choice.Label}}</span>
             </li>
-            <li ng-show="poll.AllowEdit" class="choice-item adder">
-                <form ng-submit="addChoice(poll)">
-                    <input type="text" placeholder="Suggest an option" ng-model="newChoice.Label" />
+            <li class="choice-item adder">
+                <form ng-submit="addChoice(newPoll)">
+                    <input type="text" placeholder="Add an option" ng-model="newChoice.Label" />
                 </form>
             </li>
-        </ul>-->
-    </div><!--/span-->
+        </ul>
+        <div class="header form-horizontal">
+            <div class="control-group">
+                <label class="control-label">Allow new options</label>
+                <div class="controls">
+                    <input type="checkbox" ng-model="newPoll.AllowEdit" />
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">Maximum votes per user (0 for unlimited)</label>
+                <div class="controls">
+                    <input type="text" class="votes-field" ng-model="newPoll.MaxVotes" />
+                </div>
+            </div>
+            <div class="form-actions">
+                <button class="btn btn-primary" ng-click="createPoll()">Create</button>
+                <button class="btn btn-info" ng-click="resetPoll()">Reset</button>
+            </div>
+        </div>
+        <!--        <ul class="choices">
+                        <li ng-repeat="choice in poll.Choices" class="choice-item" ng-class="{voted: choice.Selected}" ng-animate="'new-choice'">
+                            <input type="checkbox" class="checker" ng-checked="choice.Selected" ng-click="vote(poll, choice)" title="Vote for this choice" />
+                            <span class="title" ng-click="vote(poll, choice)" title="Vote for this choice">{{choice.Label}}</span>
+                            <i class="more icon-angle-down" title="View more info" ng-click="showMoreInfo(choice)"></i>
+                            <div class="more-info" ng-show="choice.ShowMoreInfo" ng-animate="'new-choice'">
+                                <span class="author">Added by {{choice.AddedBy.DisplayName}}</span>
+                            </div>
+                        </li>
+                        <li ng-show="poll.AllowEdit" class="choice-item adder">
+                            <form ng-submit="addChoice(poll)">
+                                <input type="text" placeholder="Suggest an option" ng-model="newChoice.Label" />
+                            </form>
+                        </li>
+                    </ul>-->
+    </div>
+    <!--/span-->
 </div>

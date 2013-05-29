@@ -28,23 +28,25 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </a>
-                <a class="brand" href="#/vote">Paul</a>
+                <a class="brand" href="#/">Paul</a>
                 <div class="nav-collapse collapse">
                     <p class="navbar-text pull-right">
                         Logged in as <a href="#" class="navbar-link">Username</a>
                     </p>
                     <ul class="nav">
-                        <li class="active"><a href="#/vote">Vote</a></li>
-                        <li><a href="#/create">Create</a></li>
+                        <li active-link="/vote"><a href="#/vote">Vote</a></li>
+                        <li active-link="/create"><a href="#/create">Create</a></li>
                     </ul>
                 </div>
                 <!--/.nav-collapse -->
             </div>
         </div>
     </div>
+    
+    <span class="label label-warning" id="busy" ng-show="isBusy">Busy...</span>
 
     <div class="container-fluid">
-        <div ng-view></div>
+        <div ng-view ng-animate="{enter: 'view-enter', leave: 'view-leave'}"></div>
     </div>
     <!--/.fluid-container-->
 
@@ -56,8 +58,11 @@
     <script src="content/scripts/jquery.min.js"></script>
     <script src="content/scripts/bootstrap.min.js"></script>
     <script src="content/scripts/angular.min.js"></script>
+    <script src="content/scripts/angular-strap.min.js"></script>
     <script src="content/scripts/angular-resource.min.js"></script>
+    <script src="content/scripts/cycle.js"></script>
     <script src="app/app.js"></script>
+    <script src="app/directives.js"></script>
     <script src="app/services.js"></script>
     <script src="app/vote/vote.js"></script>
     <script src="app/create/create.js"></script>

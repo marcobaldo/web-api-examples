@@ -1,5 +1,5 @@
 ﻿<div class="row-fluid">
-    <div class="well span3 unselectable" style="margin: 0 auto; float: none;">
+    <div class="well span3 unselectable" style="margin: 0 auto; float: none;" ng-show="!isCheckingAuthenticatinStatus && !isSigningIn">
         <form ng-submit="signin()">
             <h2 class="form-signin-heading">Please sign in</h2>
             <input type="text" class="input-block-level" placeholder="Username" ng-model="credentials.Username">
@@ -7,5 +7,12 @@
             <button class="btn btn-primary" type="submit">Sign in</button>
         </form>
     </div>
-    <!--/span-->
+    <div class="span5 unselectable" style="margin: 0 auto; margin-top: 200px; text-align: center; float: none;" ng-show="isCheckingAuthenticatinStatus">
+        <div class="loading"></div>
+        <h2>Checking authentication status...</h2>
+    </div>
+    <div class="span5 unselectable" style="margin: 0 auto; margin-top: 200px; text-align: center; float: none;" ng-show="isSigningIn">
+        <div class="loading"></div>
+        <h2>Signing in...</h2>
+    </div>
 </div>

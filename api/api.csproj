@@ -138,6 +138,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Choice.cs" />
+    <Compile Include="Models\Forms\VoteModel.cs" />
     <Compile Include="Models\Forms\LoginModel.cs" />
     <Compile Include="Models\Security\PaulPrincipal.cs" />
     <Compile Include="Models\Security\PaulPrincipalSerializableModel.cs" />

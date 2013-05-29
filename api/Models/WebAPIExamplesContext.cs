@@ -15,7 +15,7 @@ namespace api.Models
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.Configuration.LazyLoadingEnabled = false;
-            modelBuilder.Entity<Choice>().HasMany(c => c.VotedBy).WithMany(u => u.VotedFor).Map(
+            modelBuilder.Entity<Choice>().HasMany(c => c.VotedBy).WithMany().Map(
                 m =>
                 {
                     m.ToTable("Choices_Users");

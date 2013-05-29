@@ -1,5 +1,5 @@
 ﻿angular.module('spa.Vote', ['spa.Vote.Controllers', 'spa.Services']);
-angular.module('spa.Vote.Controllers', []).controller('VoteCtrl', function ($scope, Polls, Choices) {
+angular.module('spa.Vote.Controllers', []).controller('VoteCtrl', function ($scope, Polls, Choices, User) {
     var polls = $scope.polls = [];
     var refs = $scope.refs = {};
 
@@ -10,6 +10,19 @@ angular.module('spa.Vote.Controllers', []).controller('VoteCtrl', function ($sco
 
             _.each(el.Choices, function (choice) {
                 choice.ShowMoreInfo = false;
+
+                _.each(choice.VotedBy, function (voter) {
+                    if (!_.has(voter, '$ref')) {
+                        refs['$u' + voter.$id] = voter;
+                    } else {
+                        voter = refs['$u' + voter.$ref];
+                    }
+                    
+                    // Also check if we should highlight
+                    if (voter.Id == User.Principal.Id) {
+                        choice.Selected = true;
+                    }
+                });
 
                 var addedBy = choice.AddedBy;
                 if (!_.has(addedBy, '$ref')) {
@@ -29,6 +42,9 @@ angular.module('spa.Vote.Controllers', []).controller('VoteCtrl', function ($sco
             return;
         }
 
+        Choices.vote(choice, function(response) {
+
+        });
         choice.Selected = toggle;
     };
     $scope.showMoreInfo = function (choice) {

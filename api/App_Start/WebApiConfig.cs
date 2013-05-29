@@ -15,11 +15,8 @@ namespace api
                 defaults: new { id = RouteParameter.Optional }
             );
 
-            config.Routes.MapHttpRoute(
-                name: "apiCustom",
-                routeTemplate: "{controller}/{action}/{id}",
-                defaults: new { action = "GET", id = RouteParameter.Optional }
-            );
+            var appXmlType = config.Formatters.XmlFormatter.SupportedMediaTypes.FirstOrDefault(t => t.MediaType == "application/xml");
+            config.Formatters.XmlFormatter.SupportedMediaTypes.Remove(appXmlType);
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿<div class="row-fluid">
+﻿<div class="row-fluid vote">
     <div class="well ext span4 unselectable" ng-repeat="poll in polls">
         <div class="header">
             <span class="title">{{poll.Title}}</span>
@@ -9,7 +9,7 @@
                 <input type="checkbox" class="checker" ng-checked="choice.Selected" ng-click="vote(poll, choice)" title="Vote for this choice" />
                 <span class="title" ng-click="vote(poll, choice)" title="Vote for this choice">{{choice.Label}}</span>
                 <i class="more icon-angle-down" title="View more info" ng-click="showMoreInfo(choice)"></i>
-                <div class="more-info" ng-show="choice.ShowMoreInfo" ng-animate="'new-choice'">
+                <div class="more-info" ng-show="choice.ShowMoreInfo" ng-animate="'fade'">
                     <span class="author">Added by {{choice.AddedBy.DisplayName}}</span>
                 </div>
             </li>
