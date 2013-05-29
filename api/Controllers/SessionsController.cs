@@ -1,5 +1,7 @@
 ﻿using System;
+using System.DirectoryServices;
 using System.Linq;
+using System.Security.Principal;
 using System.Web;
 using System.Web.Http;
 using System.Web.Script.Serialization;
@@ -17,6 +19,26 @@ namespace api.Controllers
         {
             if (User.Identity.IsAuthenticated)
             {
+                //WindowsIdentity id = User.Identity as WindowsIdentity;
+                //string userInQuestion = id.Name.Split('\\')[1];
+                //string myDomain = id.Name.Split('\\')[0]; // this is the domain that the user is in
+                //// the account that this program runs in should be authenticated in there                    
+                //DirectoryEntry entry = new DirectoryEntry("LDAP://" + myDomain);
+                //DirectorySearcher adSearcher = new DirectorySearcher(entry);
+
+                //adSearcher.SearchScope = SearchScope.Subtree;
+                //adSearcher.Filter = "(&(objectClass=user)(samaccountname=" + userInQuestion + "))";
+                //SearchResult userObject = adSearcher.FindOne();
+                //if (userObject != null)
+                //{
+                //    string[] props = new string[] { "title", "mail" };
+                //    string userInfo = string.Empty;
+                //    foreach (string prop in props)
+                //    {
+                //        userInfo = string.Format("{0} : {1}", prop, userObject.Properties[prop][0]);
+                //    }
+                //}
+                
                 return new { Principal = UserToSerializable(GetUser(User.Identity.Name)), IsAuthenticated = true };
             }
 

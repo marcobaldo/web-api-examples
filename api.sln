@@ -24,6 +24,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "spa", "spa\", "{BF0C1D20-F6
 		Release.AspNetCompiler.Debug = "False"
 		VWDPort = "54347"
 		VWDDynamicPort = "false"
+		VWDVirtualPath = "/"
 	EndProjectSection
 EndProject
 Global

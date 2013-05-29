@@ -59,6 +59,7 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -192,7 +193,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>57991</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:54347/</IISUrl>
+          <IISUrl>http://localhost:54347/api</IISUrl>
           <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
           <IISAppRootUrl>http://localhost:54347/api</IISAppRootUrl>
           <NTLMAuthentication>False</NTLMAuthentication>

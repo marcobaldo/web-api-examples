@@ -56,7 +56,14 @@
         promise.then(delayedHandler, delayedHandler);
         return deferred.promise;
     };
-});;
+}).controller('IndexCtrl', function ($scope, User) {
+    $scope.User = User;
+    $scope.$watch('User.Principal', function (newValue, oldValue) {
+        if (newValue != null) {
+            $scope.DisplayName = newValue.Name;
+        }
+    });
+});
 
 angular.module('spa.Auth', ['spa.Auth.Controllers', 'spa.Auth.Services']);
 angular.module('spa.Auth.Controllers', []).controller('AuthCtrl', function ($scope, $location, User) {

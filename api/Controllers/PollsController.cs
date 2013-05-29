@@ -12,11 +12,6 @@ namespace api.Controllers
     {
         private WebAPIExamplesContext db = new WebAPIExamplesContext();
 
-        [HttpGet]
-        public string RandomMethod()
-        {
-            return "Pizza";
-        }
         // GET api/polls
         [HttpGet]
         public IEnumerable<Poll> All(PollStatus? pollStatus)
